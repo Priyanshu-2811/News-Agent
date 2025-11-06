@@ -1,117 +1,224 @@
-# 🤖 AI News Agent# 🤖 AI News Agent - Beginner's Guide
+# 🤖 AI News Agent# 🤖 AI News Agent# 🤖 AI News Agent - Beginner's Guide
 
-An intelligent multi-agent system that generates professional news articles by combining local knowledge base (RAG) with real-time web search.A simple AI-powered news article generator that combines local knowledge with web search to create engaging healthcare articles.
+Multi-agent system that generates professional articles using local knowledge (RAG) + web search.An intelligent multi-agent system that generates professional news articles by combining local knowledge base (RAG) with real-time web search.A simple AI-powered news article generator that combines local knowledge with web search to create engaging healthcare articles.
 
-![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)## 🚀 Quick Start
+![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)## 🚀 Quick Start
 
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.45+-red.svg)
 
-![CrewAI](https://img.shields.io/badge/CrewAI-Latest-orange.svg)### 1. Install Requirements
+![CrewAI](https://img.shields.io/badge/CrewAI-Latest-orange.svg)![Streamlit](https://img.shields.io/badge/Streamlit-1.45+-red.svg)
 
-## ✨ Features```bash
+## ✨ Features![CrewAI](https://img.shields.io/badge/CrewAI-Latest-orange.svg)### 1. Install Requirements
 
-pip install -r requirements.txt
+- 🔍 **Dual Search**: Local PDFs (RAG) + Web (Serper API)## ✨ Features```bash
+
+- 🤖 **Multi-Agent**: Researcher + Writer working together
+
+- 🌐 **Web UI**: ChatGPT-like Streamlit interfacepip install -r requirements.txt
+
+- 📝 **Output**: Professional Markdown articles
 
 - 🔍 **Dual Search System**: Local knowledge base (RAG) + Web search (Serper API)```
 
+## 🚀 Quick Start
+
 - 🤖 **Multi-Agent Architecture**: Research and Writer agents working collaboratively
+
+### 1. Installation
 
 - 🌐 **Web Interface**: Clean Streamlit UI similar to ChatGPT/Gemini### 2. Set Up API Keys
 
-- 📚 **Knowledge Base**: ChromaDB vector database for local document search
+`````bash
 
-- 📝 **Markdown Output**: Professional articles ready to publishCreate a `.env` file in this directory with your API keys:
+# Clone and setup- 📚 **Knowledge Base**: ChromaDB vector database for local document search
 
-## 🚀 Quick Start```
+git clone https://github.com/Priyanshu-2811/News-Agent.git
 
-GOOGLE_API_KEY=your_google_api_key_here
+cd News-Agent- 📝 **Markdown Output**: Professional articles ready to publishCreate a `.env` file in this directory with your API keys:
+
+
+
+# Create virtual environment## 🚀 Quick Start```
+
+python -m venv venv
+
+venv\Scripts\activate  # WindowsGOOGLE_API_KEY=your_google_api_key_here
+
+# source venv/bin/activate  # macOS/Linux
 
 ### PrerequisitesSERPER_API_KEY=your_serper_api_key_here
 
-````
+# Install dependencies
+
+pip install -r requirements.txt````
+
+`````
 
 - Python 3.8 or higher
 
+### 2. Configure API Keys
+
 - Google AI API key (Gemini)**Get API Keys:**
 
-- Serper API key (for web search)
+Create `.env` file:
 
-- **Google API Key**: Go to [Google AI Studio](https://aistudio.google.com/app/apikey) and create a free API key
+```env- Serper API key (for web search)
+
+GOOGLE_API_KEY=your_google_api_key
+
+SERPER_API_KEY=your_serper_api_key- **Google API Key**: Go to [Google AI Studio](https://aistudio.google.com/app/apikey) and create a free API key
+
+```
 
 ### Installation- **Serper API Key**: Go to [Serper.dev](https://serper.dev/) and get a free API key (100 free searches)
 
+**Get Keys:**
 
+- [Google AI Studio](https://aistudio.google.com/app/apikey) - Free Gemini API
+
+- [Serper.dev](https://serper.dev/) - 100 free searches
 
 1. **Clone the repository**### 3. Set Up Knowledge Base
 
-   ```bash
+### 3. Setup Knowledge Base
 
-   git clone https://github.com/yourusername/ai-news-agent.git```bash
+`````bash
 
-   cd ai-news-agentpython loader.py
+```bash
 
-````
+# Add PDF files to data/ folder, then:   git clone https://github.com/yourusername/ai-news-agent.git```bash
 
-2. **Create virtual environment**This will process the PDF files in the `data/` folder and create a searchable database.
+python loader.py
 
-   ````bash
+```   cd ai-news-agentpython loader.py
 
-   python -m venv venv### 4. Run the Application
 
-   # Windows
 
-   venv\Scripts\activate**Option A: Streamlit Web Interface (Recommended for beginners)**
+### 4. Run Application````
 
-   # macOS/Linux
 
-   source venv/bin/activate```bash
 
-   ```streamlit run streamlit_app.py
-   ````
+```bash2. **Create virtual environment**This will process the PDF files in the `data/` folder and create a searchable database.
 
-```````
+streamlit run streamlit_app.py
 
-3. **Install dependencies**
+```   ````bash
 
-   ```bash**Option B: Command Line**
+Open: `http://localhost:8501`
 
-   pip install -r requirements.txt
+python -m venv venv### 4. Run the Application
+
+## 📁 Structure
+
+# Windows
+
+`````
+
+News-Agent/ venv\Scripts\activate**Option A: Streamlit Web Interface (Recommended for beginners)**
+
+├── streamlit_app.py # Web interface
+
+├── crew.py # Agent orchestrator # macOS/Linux
+
+├── agents.py # Agent definitions
+
+├── task.py # Task configs source venv/bin/activate```bash
+
+├── tools.py # RAG + Web search
+
+├── loader.py # Knowledge base setup ```streamlit run streamlit_app.py
+
+├── data/ # Your PDF files ````
+
+└── newsblog.md # Generated articles
+
+````````
+
+
+
+## 🎯 How It Works3. **Install dependencies**
+
+
+
+1. **Input** → User enters topic   ```bash**Option B: Command Line**
+
+2. **Research Agent** → Searches PDFs + Web
+
+3. **Writer Agent** → Creates article   pip install -r requirements.txt
+
+4. **Output** → Displays + saves Markdown
 
    ``````bash
 
+## 🛠️ Tech Stack
+
 python crew.py
 
-4. **Set up environment variables**```
+- **CrewAI** - Multi-agent framework
+
+- **Streamlit** - Web UI4. **Set up environment variables**```
+
+- **Google Gemini** - LLM
+
+- **ChromaDB** - Vector database
+
+- **Serper** - Web search
+
+- **LangChain** - Document processing   Create a `.env` file in the root directory:## 📁 Project Structure
 
 
 
-   Create a `.env` file in the root directory:## 📁 Project Structure
+## 🤝 Contributing   ```env
 
-   ```env
 
-   GOOGLE_API_KEY=your_google_api_key_here```
 
-   SERPER_API_KEY=your_serper_api_key_here├── README.md                 # This guide
+1. Fork the repo   GOOGLE_API_KEY=your_google_api_key_here```
 
-   ```├── requirements.txt          # Required Python packages
+2. Create feature branch (`git checkout -b feature/NewFeature`)
 
-├── .env                     # Your API keys (create this)
+3. Commit changes (`git commit -m 'Add NewFeature'`)   SERPER_API_KEY=your_serper_api_key_here├── README.md                 # This guide
 
-   **Get API Keys:**├── streamlit_app.py         # Web interface
+4. Push (`git push origin feature/NewFeature`)
 
-   - **Google AI (Gemini)**: [Google AI Studio](https://aistudio.google.com/app/apikey) - Free tier available├── crew.py                  # Main crew coordinator
+5. Open Pull Request   ```├── requirements.txt          # Required Python packages
 
-   - **Serper**: [Serper.dev](https://serper.dev/) - 100 free searches├── agents.py                # AI agent definitions
+
+
+## 🐛 Troubleshooting├── .env                     # Your API keys (create this)
+
+
+
+| Issue | Solution |   **Get API Keys:**├── streamlit_app.py         # Web interface
+
+|-------|----------|
+
+| Import errors | `pip install -r requirements.txt` |   - **Google AI (Gemini)**: [Google AI Studio](https://aistudio.google.com/app/apikey) - Free tier available├── crew.py                  # Main crew coordinator
+
+| API errors | Check `.env` file and key quotas |
+
+| No knowledge base | Run `python loader.py` |   - **Serper**: [Serper.dev](https://serper.dev/) - 100 free searches├── agents.py                # AI agent definitions
+
+| ChromaDB warnings | Normal deprecation warnings - ignore |
 
 ├── task.py                  # Task definitions
 
+## 📝 License
+
 5. **Set up knowledge base**├── tools.py                 # Search tools
+
+MIT License - see LICENSE file
 
    ├── loader.py                # Knowledge base setup
 
+---
+
    Add your PDF files to the `data/` folder, then run:├── data/                    # PDF files to search
 
+⭐ Star this repo if you find it helpful!
+
    ```bash├── chroma_db/              # Knowledge base (created by loader.py)
+
+Made with ❤️ using CrewAI and Streamlit
 
    python loader.py└── newsblog.md             # Generated articles
 
@@ -293,3 +400,4 @@ Project Link: [https://github.com/yourusername/ai-news-agent](https://github.com
 ---
 
 Made with ❤️ using CrewAI and Streamlit
+````````
